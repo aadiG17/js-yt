@@ -20,3 +20,10 @@ let stringNumber = String(someNumber)
 console.log(stringNumber);
 console.log(typeof stringNumber);
 
+
+// **************** Operations **************
+
+// Increment (++)
+// postfix (x++) => increments and returns the value before incrementing
+// prefix (++x) => increments and returns the value after incrementing
+
