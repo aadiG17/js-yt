@@ -25,3 +25,14 @@ let myObj = {
 const myFunction = function(){
     console.log("Hello World!")
 }
+
+
+// ************************ Memory Types ********************
+
+//  Stack (Premitive), Heap (Non-premitive)
+
+// In stack if we take a variable multiple times will get copy of that and if we change
+// it, it will only change the copy not the original value
+// But in Heap if we do so, it will change/update the original value because it takes reference
+// of original variable.
+
