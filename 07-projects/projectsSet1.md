@@ -7,6 +7,8 @@
 
 ## project 1
 
+### Color scheme switcher
+
 ```javascript
 
 console.log("project01")
