@@ -192,6 +192,41 @@ function newGame(){
 
 ```
 
+## project 5 solution
+### KeyboardCheck
+
+```javascript
+  // console.log('Project 5');
+
+const insert = document.getElementById('insert');
+// console.log('Project 5');
+
+window.addEventListener('keydown', (e) => {
+  // console.log('Project 5');
+
+  insert.innerHTML = `
+
+    <div class='color'>
+    <table>
+    <tr>
+      <th>Key</th>
+      <th>Keydown</th>
+      <th>Code</th>
+    </tr>
+    <tr>
+      <td>${e.key === ' ' ? 'Space' : e.key}</td>
+      <td>${e.keyCode}</td>
+      <td>${e.code}</td>
+    </tr>
+    
+    </table>
+    </div>
+  `;
+});
+
+
+```
+
 ## project 6 solution
 ### Change background color
 
