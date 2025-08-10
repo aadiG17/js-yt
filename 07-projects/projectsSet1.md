@@ -191,3 +191,53 @@ function newGame(){
 }
 
 ```
+
+## project 6 solution
+### Change background color
+
+```javascript
+
+// generate a random coclor
+
+const randomColor = function(){
+  const hex = '0123456789ABCDEF';
+  let color = '#';
+  for(let i=0; i<6; i++){
+    color += hex[Math.floor(Math.random()*16)];
+  }
+  return color;
+};
+// console.log(randomColor());
+
+let intervalId;
+const startChangingColor = function(){
+  // console.log("start clicked")
+  intervalId = setInterval(changeBgColor, 1000);
+
+  function changeBgColor(){
+    // console.log("start clicked")
+    document.body.style.backgroundColor = randomColor();
+    console.log("start clicked")
+  }
+};
+
+const stopChangingColor = function(){
+  clearInterval(intervalId);
+  intervalId = null;
+};
+
+document.querySelector('#start').addEventListener('click', startChangingColor);
+// console.log("start clicked")
+
+//************************************ */
+// Note: if we r clickng start once and then stopping it, it is working 
+// fine BUT if we click on start simultaeously two or more time its 
+// color changing speed will be doubled it wont stop even if we click 
+// stop .... Have to figure out its solution 
+//************************************ */
+
+
+document.querySelector('#stop').addEventListener('click', stopChangingColor);
+
+
+```
