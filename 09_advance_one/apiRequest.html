@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHR</title>
+</head>
+<body style="background-color: #212121;">
+
+    
+    <!-- Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+
+<h1>GitHub Profile Card</h1>
+    <button id="loadProfile">Load Profile</button>
+    
+<div class="card">
+        <article class="card">
+            <header>
+            <h2 style="color: white;">Chai aur code</h2>
+            </header>
+
+            <img class="img_url"
+            src= profile_img />
+            <div class="content">
+            <footer class="footer followers_count" style="color: white;">
+                Number of followers: Loading... 
+            </footer>
+            </div>
+        </article>
+    </div>
+
+</body>
+<script>
+    document.getElementById('loadProfile').addEventListener('click', function(){
+        const requesURL = 'https://api.github.com/users/hiteshchoudhary'
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', requesURL);
+
+        let data;
+        let followers_count;
+        let profile_img;
+        
+        xhr.onreadystatechange = function(){
+            console.log(xhr.readyState);
+            if(xhr.readyState === 4){
+                data = JSON.parse(this.responseText); // this is used for the currecnt context
+                // console.log(typeof data);   // default the data type will be of string type
+                // console.log(data.followers); // output be undefined coz of string type need to convert into object
+                followers_count = data.followers;
+                console.log(followers_count);
+                console.log(data);
+                profile_img = data.avatar_url;
+                console.log(profile_img);
+                
+                document.querySelector('.img_url').src = profile_img;
+                document.querySelector('.followers_count').textContent =
+                    `Number of followers: ${followers_count}`;
+            }
+        }
+        xhr.send();
+    });
+
+
+    // const container = document.createElement('coolCards');
+
+    // document.querySelector('img_url').innerHTML = "profile_img";
+
+</script>
+</html>
